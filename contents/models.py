@@ -17,6 +17,10 @@ class Article(models.Model):
         return self.title
 
 
+class Category(models.Model):
+    title = models.CharField(max_length=100)
+
+
 class Sequence(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(blank=True)
