@@ -1,4 +1,7 @@
 from django.db import models
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 
 class Article(models.Model):
@@ -6,6 +9,7 @@ class Article(models.Model):
     content = models.TextField(blank=True)
     last_modified = models.DateTimeField(auto_now=True)
 
+    author = models.ForeignKey(User, on_delete=models.PROTECT)
     youtube_id = models.CharField(max_length=20, blank=True)
     instagram_id = models.CharField(max_length=20, blank=True)
 
